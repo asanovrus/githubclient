@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Github Users</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sheep">History</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_chart">Compas</string>
+</resources>
