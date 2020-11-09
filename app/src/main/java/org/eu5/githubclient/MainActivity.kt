@@ -76,6 +76,9 @@ class MainActivity : AppCompatActivity() {
         var mclient = HttpClient(flnm)
         urlfull = url + "/" + gitName
         mclient.get(this, true, urlfull)
+        var urlRepos = urlfull+"/repos"
+        Thread.sleep(3000)
+        mclient.get(this, true, urlRepos)
     }
 
 
@@ -93,8 +96,8 @@ class MainActivity : AppCompatActivity() {
         val itms = ArrayList<Item>()
 
         //adding data to the list
-        itms.add(Item("login", login))
-        itms.add(Item("id", id))
+        itms.add(Item("Login", login))
+        itms.add(Item("ID", id))
         itms.add(Item("Repos", repos))
         itms.add(Item("Followers", followers))
 

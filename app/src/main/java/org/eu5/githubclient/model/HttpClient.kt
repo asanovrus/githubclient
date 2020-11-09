@@ -59,10 +59,17 @@ class HttpClient(file:String = "fileRate.txt") {
             val objData = mapperAll.readTree(responseBody)
             Log.i(tag, " _____objData: ${objData}")
             try {
-                login = objData?.get("login").toString()
-                id = objData?.get("id").toString()
-                repos = objData?.get("repos").toString()
-                followers = objData?.get("followers").toString()
+                if(objData.isArray){
+                    Log.i(tag, "  objData[0]: "+objData[0])
+                    objData.forEach{
+                        Log.i(tag, "  ${it.toString()}")
+                        repos += it?.get("name").toString()+" "
+                    }
+                }else{
+                    login = objData?.get("login").toString()
+                    id = objData?.get("id").toString()
+                    followers = objData?.get("followers").toString()
+                }
             }catch (e:Exception){
                 Log.i(tag, " error parsing $urlfull response: ${e.message}")
             }
